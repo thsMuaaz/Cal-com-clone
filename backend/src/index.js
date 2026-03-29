@@ -14,11 +14,11 @@ if (!pool) {
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
 
-app.use(
-  cors({
-    origin: [/localhost:\d+$/],
-  }),
-)
+app.use(cors({
+  origin: true,
+  credentials: true
+}))
+
 app.use(express.json())
 
 app.get('/api/health', async (_req, res) => {
